@@ -16,7 +16,7 @@
 You should first install some necessary packages.
 
 ```bash
-    $ pip install -r requirements.txt
+    pip install -r requirements.txt
 ```
 
 ## 📊 Dataset
@@ -25,8 +25,8 @@ You should first install some necessary packages.
 You can also obtain the dataset from Hugging Face:
 
 ```bash
-$ pip install datasets
-$ python -c "from datasets import load_dataset; load_dataset('openvivqa')"
+from datasets import load_dataset
+dataset = load_dataset("uitnlp/OpenViVQA-dataset")
 ```
 
 ## 🔄 Data Transformation
