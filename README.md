@@ -20,9 +20,7 @@ You should first install some necessary packages.
 ```
 
 ## 📊 Dataset
-
-1. The dataset used is OpenViVQA.
-2. Download the ViVQA dataset, more information about relevant published papers and datasets, please visit [UIT-NLP](http://nlp.uit.edu.vn).
+- The dataset used is OpenViVQA.
 
 You can also obtain the dataset from Hugging Face:
 
