@@ -1,0 +1,80 @@
+data:
+  images_folder: data/all_img
+  train_dataset: data/vlsp2023_train_data.json
+  val_dataset: data/vlsp2023_dev_data.json
+  test_dataset: data/vlsp2023_test_data.json
+  num_worker: 2
+
+tokenizer:
+  padding: max_length
+  max_length: 20
+  truncation: True
+  return_token_type_ids: True
+  return_attention_mask: True
+
+text_embedding:
+  type: pretrained #có 3 loại, pretrained, tf_idf, count_vec
+  text_encoder: vinai/phobert-base
+  freeze: True
+  d_features: 768
+  d_model: 512
+  dropout: 0.1
+
+vision_embedding:
+  image_encoder: google/vit-base-patch16-224-in21k
+  freeze: True
+  d_features: 768
+  d_model: 512
+  dropout: 0.1
+
+ocr_obj_embedding:
+  use_ocr_obj: False
+  use_attr: False
+  path_ocr: data/ocr_feature
+  threshold: 0.3
+  max_scene_text: 32
+  d_model: 512
+  d_det: 256
+  d_rec: 256
+  path_obj: data/obj_feature
+  max_bbox: 64
+  d_obj: 2048
+
+attention:
+  heads: 8
+  d_model: 512
+  d_key: 64
+  d_value: 64
+  d_ff: 2048
+  d_feature: 2048
+  dropout: 0.1
+  use_aoa: False
+
+encoder:
+  type: co # có 3 loại, co (co-attention), cross (cross-attention), guide (guide-attention)
+  d_model: 512
+  layers: 3
+
+model:
+  name: vilbert_phobert-vit  # Custom name for the multimodal model
+  intermediate_dims: 512
+  dropout: 0.1
+
+train:
+  output_dir: checkpoint
+  seed: 12345
+  num_train_epochs: 100
+  patience: 5
+  learning_rate: 5.0e-5
+  weight_decay: 0.0
+  warmup_ratio: 0.0
+  warmup_steps: 0
+  metric_for_best_model: f1
+  per_device_train_batch_size: 64
+  per_device_valid_batch_size: 64
+
+infer:
+  with_answer: True
+  images_folder: data/all_img
+  test_dataset: data/test.json
+  per_device_eval_batch_size: 64
