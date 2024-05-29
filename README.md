@@ -1,10 +1,5 @@
 # VQA
 
-This repository corresponds to the **PyTorch** implementation of the MCAN [paper](https://openaccess.thecvf.com/content_CVPR_2019/html/Yu_Deep_Modular_Co-Attention_Networks_for_Visual_Question_Answering_CVPR_2019_paper.html) for VQA in Vietnamese.
-
-Original MCAN: [link](https://github.com/MILVLG/mcan-vqa)
-
-
 ## 📑 Table of Contents
 1. [Prerequisites](#Prerequisites)
 2. [Dataset](#Dataset)
